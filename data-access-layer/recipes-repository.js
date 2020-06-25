@@ -1,11 +1,12 @@
 const { Op } = require('sequelize');
-let Recipe, Instruction, Ingredient, MeasurementUnit;
+let recipe, Instruction, ingredients, MeasurementUnit;
 let moduleError;
 
 try {
   const db = require('../models');
-  ({ Recipe, Instruction, Ingredient, MeasurementUnit } = db);
-  if (Recipe === undefined) {
+  console.log(db);
+  ({ recipe, Instruction, ingredients, MeasurementUnit } = db);
+  if (recipe === undefined) {
     moduleError = 'It looks like you need to generate the Recipe model.';
   }
 } catch (e) {
@@ -28,11 +29,10 @@ async function getTenNewestRecipes() {
   //   so read the documentation carefully.)
   //
   // The general form of this is
-  //
+  // //
   // Model.findAll({
-  //     { ... specify your options here... }
   // });
-  //
+
   // Docs: https://sequelize.org/master/class/lib/model.js~Model.html#static-method-findAll
 }
 
