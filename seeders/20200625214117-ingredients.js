@@ -2,7 +2,7 @@
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkInsert('ingredients', [
+    await queryInterface.bulkInsert('Ingredients', [
       { recipeId: 12, amount: 3, measurementUnitId: 12, foodStuff: 'Thai green curry paste', createdAt: new Date(), updatedAt: new Date() },
       { recipeId: 12, amount: 400, measurementUnitId: 6, foodStuff: 'coconut milk', createdAt: new Date(), updatedAt: new Date() },
       { recipeId: 12, amount: 150, measurementUnitId: 4, foodStuff: 'cooked prawns', createdAt: new Date(), updatedAt: new Date() },

@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const recipe = sequelize.define('recipe', {
+  const Recipe = sequelize.define('Recipe', {
     title: {
       type: DataTypes.STRING(200),
       validate: {
@@ -8,9 +8,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     },
   }, {});
-  recipe.associate = function (models) {
-    recipe.hasMany(models.Instruction, { foreignKey: 'recipeId', onDelete: 'CASCADE', hooks: true });
-    recipe.hasMany(models.ingredients, { foreignKey: 'recipeId', onDelete: 'CASCADE', hooks: true });
+  Recipe.associate = function (models) {
+    Recipe.hasMany(models.Instruction, { foreignKey: 'recipeId', onDelete: 'CASCADE', hooks: true });
+    Recipe.hasMany(models.Ingredient, { foreignKey: 'recipeId', onDelete: 'CASCADE', hooks: true });
   };
-  return recipe;
+  return Recipe;
 };
