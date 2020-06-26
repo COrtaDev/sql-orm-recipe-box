@@ -1,6 +1,6 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Ingredients = sequelize.define('Ingredients', {
+  const Ingredient = sequelize.define('Ingredient', {
     amount: {
       type: DataTypes.NUMERIC(5, 2),
       validate: {
@@ -26,9 +26,9 @@ module.exports = (sequelize, DataTypes) => {
       },
     }
   }, {});
-  Ingredients.associate = function (models) {
-    Ingredients.belongsTo(models.Recipe, { foreignKey: 'recipeId' });
-    Ingredients.belongsTo(models.MeasurementUnit, { foreignKey: 'measurementUnitId' });
+  Ingredient.associate = function (models) {
+    Ingredient.belongsTo(models.Recipe, { foreignKey: 'recipeId' });
+    Ingredient.belongsTo(models.MeasurementUnit, { foreignKey: 'measurementUnitId' });
   };
-  return Ingredients;
+  return Ingredient;
 };

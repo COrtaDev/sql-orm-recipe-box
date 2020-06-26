@@ -20,11 +20,6 @@ try {
 
 
 async function getMeasurementUnits() {
-  // Use the findAll method of the MeasurementUnit object to return the
-  // measurement units.
-  // Use the options for findAll to order them by name
-  //
-  // Docs: https://sequelize.org/master/class/lib/model.js~Model.html#static-method-findAll
   return await MeasurementUnit.findAll({
     order: ['name']
   });

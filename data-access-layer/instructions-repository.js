@@ -18,16 +18,13 @@ try {
 }
 /* Don't change code above this line ******************************************/
 
-
-
 async function createNewInstruction(specification, recipeId) {
-  // Use the findAll method of the Instruction object to find all the
-  // instructions for the specified recipe.
-  //
-  // Use the create method of the Instruction object to create a new object and
-  // return it using the maximum listOrder from the query just before this.
-  //
-  // Docs: https://sequelize.org/v5/manual/instances.html#creating-persistent-instances
+  const instructionVar = await Instruction.findAll({ where: { recipeId } });
+  const listOrders = await instructionVar.map(instruction => instruction.listOrder);
+  listOrders.push(0);
+  let max = Math.max(...listOrders)
+  let listOrder = max + 1;
+  return Instruction.create({ specification, recipeId, listOrder });
 }
 
 

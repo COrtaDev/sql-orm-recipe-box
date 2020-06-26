@@ -94,7 +94,7 @@ router.get('/:id', async (req, res) => {
   let recipe;
   if (!error) {
     try {
-      console.log("params: ", req.params, "req: ", req, "id: ", req.params.id);
+      // console.log("params: ", req.params, "req: ", req, "id: ", req.params.id);
       recipe = await recipeRepo.getRecipeById(req.params.id);
       if (recipe) {
         recipe.created = moment(recipe.createdAt).format('MMM Do, YYYY');

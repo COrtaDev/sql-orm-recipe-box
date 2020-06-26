@@ -9,7 +9,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {});
   MeasurementUnit.associate = function (models) {
-    MeasurementUnit.hasMany(models.Ingredients, { foreignKey: 'measurementUnitId', onDelete: 'CASCADE', hook: true });
+    MeasurementUnit.hasMany(models.Ingredient, { foreignKey: 'measurementUnitId', onDelete: 'CASCADE', hook: true });
   };
   return MeasurementUnit;
 };
